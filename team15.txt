@@ -1,0 +1,18 @@
+NUMBER GAME (TEAM NO : 15)
+Asma Saedhiya S - 717824P209
+Dhanya R - 717824P310
+Dharshini N - 717824P111
+Sanjithasri A P - 717824P149
+Abinaya S A – 717824P301
+Vinotha G – 721224CSBD57
+Harini S – 721224CSAD36
+
+Data Structures : Array 
+Input : 4*4 matrix , Direction to move, Number of moves
+Output : Win/Loss
+
+Asks the user to enter the source row and source column to start , which direction to move (left, right, up, down) and number of moves in that particular direction. 
+After each move, a cell with value 2 is generated at the empty cell in the boundary if it exists or inside the boundary.
+Iterating through each moves in that particular direction if it is valid (either an empty cell or the same value) then add the values in that cell and if it is not valid (mismatch values) then stop the iteration.If the destination is reached, the loop stops the execution.
+If the maximum value in the grid attained a specific value set by developer(512) is attained , the user wins.
+If the grid has no empty cells and there is no possibility of neighbouring same values, then the game over(user lost) 
