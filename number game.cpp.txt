@@ -1,0 +1,113 @@
+#include<iostream>
+using namespace std;
+int maxvalue=0;
+bool randomgenerate(int arr[4][4]){
+	for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+			if(arr[i][j]==0){
+				arr[i][j]=2;
+				return true;
+			}
+		}
+	}
+	return false;
+}
+void printboard(int arr[4][4]){
+	for(int i=0;i<4;i++){
+		for(int j=0;j<4;j++){
+			cout<<arr[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+}
+bool check(int arr[4][4],int dir,int values,int sr,int sc){
+	if(dir==1){
+		 for(int j=sc-1;j>=0 && values>0;j--){
+		 	if(arr[sr][j]!=0 && arr[sr][j]!=arr[sr][j+1]){
+		 		return false;
+			 }
+			 
+			 if(arr[sr][j]==arr[sr][j+1] || arr[sr][j+1]==0){
+			 	   arr[sr][j]+=arr[sr][j+1];
+			 	    maxvalue=max(maxvalue,arr[sr][j+1]);
+			 	   arr[sr][j+1]=0;
+			 }
+		
+			 values--;
+		 }
+	}
+	if(dir==2){
+		 	 for(int j=sc+1;j<4 && values>0;j--){
+		 	if(arr[sr][j]!=0 && arr[sr][j]!=arr[sr][j-1]){
+		 		return false;
+			 }
+			 if(arr[sr][j]==arr[sr][j-1] || arr[sr][j-1]==0){
+			 	   arr[sr][j]+=arr[sr][j-1];
+			 	   maxvalue=max(maxvalue,arr[sr][j]);
+			 	   arr[sr][j-1]=0;
+			 }
+			 values--;
+		 }
+	}
+	if(dir==3){
+	     	 for(int j=sr-1;j>=0 && values>0;j--){
+		 	if(arr[j][sc]!=0 && arr[j][sr]!=arr[j+1][sc]){
+		 		return false;
+			 }
+			 if(arr[j][sc]==arr[j+1][sc] || arr[j+1][sc]==0){
+			 	   arr[j][sc]+=arr[j+1][sc];
+			 	    maxvalue=max(maxvalue,arr[j+1][sc]);
+			 	   arr[j+1][sc]=0;
+			 }
+			 values--;
+		 }
+	}
+	if(dir==4){
+			 for(int j=sc+1;j<4 && values>0;j--){
+		 	if(arr[j][sc]!=0 && arr[j][sc]!=arr[j-1][sc]){
+		 		return false;
+			 }
+			 if(arr[j][sc]==arr[j-1][sc] || arr[j-1][sc]==0){
+			 	   arr[j][sc]+=arr[j-1][sc];
+			 	    maxvalue=max(maxvalue,arr[j-1][sc]);
+			 	   arr[j-1][sc]=0;
+			 }
+			 values--;
+		 }
+	}
+}
+int main(){
+	int arr[4][4]={
+		{0,0,0,0
+		},
+		{
+			0,0,0,0
+		},
+		{0,2,2,0
+		},
+		{0,0,4,0
+		}
+	};
+	printboard(arr);
+	bool flag=true;
+	while(flag){
+		cout<<"Enter source:"<<endl;
+		int sr,sc;
+		int dr,dc;
+		cin>>sr>>sc;
+		cout<<"choose dir with moves"<<endl;
+		cout<<"1.left 2.right 3.up 4.down"<<endl;
+		int dir,moves;
+		cin>>dir>>moves;
+		bool isvalid=check(arr,dir,moves,sr,sc);
+		printboard(arr);
+		if(maxvalue>=512){
+			cout<<"you Win the Game"<<endl;
+			flag=false;
+		}
+		if(!randomgenerate(arr)){
+			   cout<<"Game Over!!You Lost"<<endl;
+			   flag=false;
+		}
+	}
+}
