@@ -1,0 +1,42 @@
+**APPLICATION NAME : SUDOKU GAME: team 13
+
+CONTRIBUTORS:
+
+1. HELAN DONIKA S- 717824F223
+2. GNANA SRI R - 717824F316
+
+3. DHARSHINI R - 717824F216
+
+4. HARINITHA K - 717824F222
+
+5. SANDTHIYA SRI K- 717824F145
+
+6. AARTHI K - 717824P102
+
+7.INDHUMATHI S - 717824P119
+
+8.DHARSHINI S - 717824P214
+
+- Interactive 9×9 Sudoku game implemented using C++.
+- The Sudoku board is initially taken as input.
+- "0" represents an empty cell.
+- A "visited" matrix identifies cells that were already filled in the original puzzle.
+- Pre-filled cells cannot be modified by the player.
+- A "cur" counter keeps track of the total number of filled cells.
+- The game runs continuously using an infinite "while(true)" loop.
+- The player can perform two operations: Update and Delete.
+- For Update, the player enters the row, column, and value.
+- The program first checks whether the selected cell is editable.
+- The entered value is validated using three separate functions.
+- "checkrow()" verifies the value in the selected row.
+- "checkcol()" verifies the value in the selected column.
+- "checksub()" verifies the value in the corresponding 3×3 sub-grid.
+- The value is inserted only when all three validations are successful.
+- If an empty cell is successfully filled, "cur" is increased by one.
+- The Delete operation changes the selected cell back to "0".
+- After deletion, "cur" is decreased by one.
+- A "wrong" counter is used to track invalid attempts.
+- After 5 wrong attempts, the game ends and the player loses.
+- When "cur" becomes 81, all cells are filled.
+- The player wins when all 81 cells are successfully filled.
+- The completed Sudoku board is printed before the program terminates.
