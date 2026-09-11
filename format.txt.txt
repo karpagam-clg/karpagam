@@ -1,0 +1,7 @@
+- create a branch name like game/team1, game/team2, etc
+cmd: git branch -M game/team<id>
+
+- Files:
+  - Foldername - (team<id>)
+    README.md (with all registration id) 
+    Code Files, others

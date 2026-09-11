@@ -1,0 +1,33 @@
+TEAM NAME:BOMB SQUAD(TEAM 3)
+TEAM MEMBERS:
+Dinesh S           717824P215
+Karthikeyan R      717824P225
+Sabarish R         717824P245
+Sanjay Krishna S   717824P247
+Siddharth G        717824P254
+Sudarbalan A       717824P255
+
+GAME NAME:BOMB BLAST
+
+Rules:
+There is  a n x n matrix in which some boxes may contain bombs.
+The user should select boxes one by one.If the user didn't hit the bomb then their score will be increased by 1.
+Unfortunately if the user hit the bomb the game comes to end.
+The current score is the user's score.That is number of boxes the user opened without hitting the bomb.
+
+How to Play?
+First the user must enter the size of the matrix(for example 2 for 2x2 matrix) 
+Once Entered the matrix is created with bombs at random positions and will be displayed to the user after hidden
+the user must now enter the position at which they want to visit and this will repeat till the user touches the bomb
+
+Explanation Logic:
+We have created two vectors, one to display to the user and one to track the bomb positions.
+Initialized all the boxes in the matrix with `1`, where `1` represents a safe box.
+Initialized the bombs inside the matrix using the `rand()` function, where `0` is the indicator for bombs.
+Then we have created a `display()` function to display the user vector.
+While maintaining the score, we continuously ask the user to enter the position they want to visit.
+Converted the entered position into row and column using `(in-1)/n` and `(in-1)%n`.
+Checked whether the selected box was already visited. If it was visited, we displayed `"Already Visited"`.
+If the selected position contains `0`, the user has hit a bomb and the game ends.
+Otherwise, the score is increased by `1` and the selected position is marked as visited.
+This process continues until the user hits a bomb.
